@@ -24,24 +24,28 @@ st.markdown("""
 # --- CARGA DE DATOS Y MODELOS ---
 # Quitamos el cache momentaneamente para asegurar que lee los datos nuevos
 def load_assets():
-    try:
-        current_file = os.path.abspath(__file__)
-    except NameError:
-        current_file = os.path.abspath('ml_project/app/streamlit_app.py')
-        
-    base_dir = os.path.dirname(os.path.dirname(current_file))
-    model_path = os.path.join(base_dir, 'models', 'churn_model_rf_optimized.joblib')
-    scaler_path = os.path.join(base_dir, 'models', 'scaler.joblib')
-    data_path = os.path.join(base_dir, 'data', 'processed', 'clientes_en_riesgo_2025.csv')
+    # Detectar la ruta absoluta del archivo actual
+    current_file = os.path.abspath(__file__)
+    # El archivo esta en: ml_project/dashboard_retencion/telecomx_dashboard.py
+    # Subimos 2 niveles para llegar a la raiz de ml_project
+    ml_root = os.path.dirname(os.path.dirname(current_file))
+    
+    model_path = os.path.join(ml_root, 'models', 'churn_model_rf_optimized.joblib')
+    scaler_path = os.path.join(ml_root, 'models', 'scaler.joblib')
+    data_path = os.path.join(ml_root, 'data', 'processed', 'clientes_en_riesgo_2025.csv')
     
     try:
+        if not os.path.exists(data_path):
+            st.error(f"Archivo de datos no encontrado en: {data_path}")
+            return None, None, None
+            
         model = joblib.load(model_path)
         scaler = joblib.load(scaler_path)
         df_risk = pd.read_csv(data_path)
-        # Limpiar nombres de columnas (quitar espacios y normalizar)
         df_risk.columns = df_risk.columns.str.strip()
         return model, scaler, df_risk
     except Exception as e:
+        st.error(f"Error al cargar los recursos: {str(e)}")
         return None, None, None
 
 model, scaler, df_risk = load_assets()
