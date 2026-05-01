@@ -1,5 +1,7 @@
 # 📋 Reporte Ejecutivo: Predicción de Abandono (Churn) - TelecomX
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/Dannydejesus/TelecomX_parte2_Latam/master/ml_project/app/streamlit_app.py)
+
 ## 1. Resumen del Problema y Objetivo
 El proyecto **TelecomX** surge de la necesidad de identificar proactivamente a los clientes con alta probabilidad de cancelar sus servicios. El objetivo principal fue desarrollar un modelo de Machine Learning capaz de clasificar a los clientes en riesgo, permitiendo al equipo de retención actuar antes de que el abandono se concrete.
 
