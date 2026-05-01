@@ -2,6 +2,8 @@
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://telecomxparte2latam-4hwne3gpaqsfzhqmrqz5qp.streamlit.app/)
 
+🚀 **Acceso directo al Dashboard:** [Haga clic aquí para abrir la aplicación](https://telecomxparte2latam-4hwne3gpaqsfzhqmrqz5qp.streamlit.app/)
+
 ## 1. Resumen del Problema y Objetivo
 El proyecto **TelecomX** surge de la necesidad de identificar proactivamente a los clientes con alta probabilidad de cancelar sus servicios. El objetivo principal fue desarrollar un modelo de Machine Learning capaz de clasificar a los clientes en riesgo, permitiendo al equipo de retención actuar antes de que el abandono se concrete.
 
